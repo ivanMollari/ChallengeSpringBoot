@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Characters</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+<div class="w3-container">
+    <a th:href="@{/form/character}" class="w3-button w3-blue">Add new Character</a>
+</div>
+<div class="w3-container">
+    <h2>List of characters</h2>
+
+    <table class="w3-table-all">
+        <tr>
+            <th>Imagen</th>
+            <th>Nombre</th>
+        </tr>
+        <tr th:each="cartoonCharacter : ${listOfCartoonCharacters}">
+            <td><img th:src="@{'/img/' + ${cartoonCharacter.urlImg}}" th:alt="${cartoonCharacter.urlImg}"></td>
+            <td th:text="${cartoonCharacter.name}"></td>
+            <td>
+                <a class="w3-yellow w3-button">Update</a>
+                <a class="w3-red w3-button">Delete</a>
+            </td>
+    </table>
+</div>
+
+</body>
+</html>

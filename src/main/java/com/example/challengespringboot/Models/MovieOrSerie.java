@@ -19,32 +19,32 @@ public class MovieOrSerie {
             CascadeType.MERGE
     })
     @JoinTable(
-            name = "movieOrSerie_character",
-            joinColumns = {@JoinColumn(name = "movieOrSerie_id")},
-            inverseJoinColumns = {@JoinColumn(name = "character_id")}
+            name = "movieOrSerie_cartoonCharacter",
+            joinColumns = @JoinColumn(name = "movieOrSerie_id"),
+            inverseJoinColumns = @JoinColumn(name = "cartoonCharacter_id")
     )
-    private Set<Character> listCharacters;
-    @ManyToMany(mappedBy = "MovieOrSerie")
+    private Set<CartoonCharacter> listCartoonCharacters;
+    @ManyToMany(mappedBy = "listMoviesOrSeries")
     private Set<Gender> listGender;
 
     public MovieOrSerie() {
     }
 
-    public MovieOrSerie(Long id, String title, String urlImg, LocalDate creationDate, Integer score, Set<Character> listCharacters) {
+    public MovieOrSerie(Long id, String title, String urlImg, LocalDate creationDate, Integer score, Set<CartoonCharacter> listCartoonCharacters) {
         this.id = id;
         this.title = title;
         this.urlImg = urlImg;
         this.creationDate = creationDate;
         this.score = score;
-        this.listCharacters = listCharacters;
+        this.listCartoonCharacters = listCartoonCharacters;
     }
 
-    public MovieOrSerie(String title, String urlImg, LocalDate creationDate, Integer score, Set<Character> listCharacters) {
+    public MovieOrSerie(String title, String urlImg, LocalDate creationDate, Integer score, Set<CartoonCharacter> listCartoonCharacters) {
         this.title = title;
         this.urlImg = urlImg;
         this.creationDate = creationDate;
         this.score = score;
-        this.listCharacters = listCharacters;
+        this.listCartoonCharacters = listCartoonCharacters;
     }
 
     public Long getId() {
@@ -87,12 +87,12 @@ public class MovieOrSerie {
         this.score = score;
     }
 
-    public Set<Character> getListCharacters() {
-        return listCharacters;
+    public Set<CartoonCharacter> getListCharacters() {
+        return listCartoonCharacters;
     }
 
-    public void setListCharacters(Set<Character> listCharacters) {
-        this.listCharacters = listCharacters;
+    public void setListCharacters(Set<CartoonCharacter> listCartoonCharacters) {
+        this.listCartoonCharacters = listCartoonCharacters;
     }
 
     public Set<Gender> getListGender() {
@@ -111,7 +111,7 @@ public class MovieOrSerie {
                 ", urlImg='" + urlImg + '\'' +
                 ", creationDate=" + creationDate +
                 ", score=" + score +
-                ", listCharacters=" + listCharacters +
+                ", listCartoonCharacters=" + listCartoonCharacters +
                 '}';
     }
 }

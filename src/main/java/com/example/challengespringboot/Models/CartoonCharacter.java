@@ -5,7 +5,7 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-public class Character {
+public class CartoonCharacter {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,10 +15,10 @@ public class Character {
     private Integer age;
     private Float weight;
     private String history;
-    @ManyToMany(mappedBy = "Character")
+    @ManyToMany(mappedBy = "listCartoonCharacters")
     private Set<MovieOrSerie> listMoviesOrSeries;
 
-    public Character(String name, String urlImg, Integer age, Float weight, String history, Set<MovieOrSerie> listMoviesOrSeries) {
+    public CartoonCharacter(String name, String urlImg, Integer age, Float weight, String history, Set<MovieOrSerie> listMoviesOrSeries) {
         this.name = name;
         this.urlImg = urlImg;
         this.age = age;
@@ -27,7 +27,7 @@ public class Character {
         this.listMoviesOrSeries = listMoviesOrSeries;
     }
 
-    public Character(Long id, String name, String urlImg, Integer age, Float weight, String history, Set<MovieOrSerie> listMoviesOrSeries) {
+    public CartoonCharacter(Long id, String name, String urlImg, Integer age, Float weight, String history, Set<MovieOrSerie> listMoviesOrSeries) {
         this.id = id;
         this.name = name;
         this.urlImg = urlImg;
@@ -37,7 +37,7 @@ public class Character {
         this.listMoviesOrSeries = listMoviesOrSeries;
     }
 
-    public Character() {
+    public CartoonCharacter() {
 
     }
 

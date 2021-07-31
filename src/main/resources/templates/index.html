@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
+    <div class="w3-container w3-content">
+        <div class="w3-card">
+            <h2 th:if="${session.user != null}">Bienvenido/a<p th:text="${session.user.name}"></p></h2>
+        </div>
+        <form th:action="@{/logout}" method="post">
+            <button type="submit" class="w3-btn w3-dark-gray">Logout</button>
+        </form>
+    </div>
+</body>
+</html>
